@@ -50,20 +50,17 @@
   <div class="drawer-logo"><a href="index.html">FinMedia</a></div>
   <div class="drawer-section-title">Рубрики</div>
   <nav>
-    <a href="#">Экономика и бизнес</a>
-    <a href="#">Бизнес</a>
-    <a href="#">Финансы</a>
-    <a href="#">Инвестиции</a>
-    <a href="#">Биржа</a>
-    <a href="#">Производство</a>
-    <a href="#">Энергетика и недра</a>
-    <a href="#">Сельское хозяйство</a>
-    <a href="#">Страхование</a>
-    <a href="#">Недвижимость</a>
-    <a href="#">Стартапы</a>
-    <a href="#">Авто</a>
-    <a href="#">Маркетинг</a>
-    <a href="#">Транспорт и торговля</a>
+    <a href="#" class="cat-link active" style="font-weight:700; color:var(--red);">Все</a>
+    <a href="#" class="cat-link">Бизнес</a>
+    <a href="#" class="cat-link">Финансы</a>
+    <a href="#" class="cat-link">Инвестиции</a>
+    <a href="#" class="cat-link">Биржа</a>
+    <a href="#" class="cat-link">Стартапы</a>
+    <a href="#" class="cat-link">Недвижимость</a>
+    <a href="#" class="cat-link">Маркетинг</a>
+    <a href="#" class="cat-link">Авто</a>
+    <a href="#" class="cat-link">Энергетика</a>
+    <a href="#" class="cat-link">Транспорт</a>
   </nav>
   <div class="drawer-section-title">Ещё</div>
   <nav>
@@ -75,23 +72,7 @@
   <a href="submit.html" class="btn-write">Написать статью</a>
 </div>
 
-<!-- ══ CATEGORIES BAR ══ -->
 
-<div class="categories-bar">
-  <div class="categories-inner">
-    <a href="#" class="cat-link active">Все</a>
-    <a href="#" class="cat-link">Бизнес</a>
-    <a href="#" class="cat-link">Финансы</a>
-    <a href="#" class="cat-link">Инвестиции</a>
-    <a href="#" class="cat-link">Биржа</a>
-    <a href="#" class="cat-link">Стартапы</a>
-    <a href="#" class="cat-link">Недвижимость</a>
-    <a href="#" class="cat-link">Маркетинг</a>
-    <a href="#" class="cat-link">Авто</a>
-    <a href="#" class="cat-link">Энергетика</a>
-    <a href="#" class="cat-link">Транспорт</a>
-  </div>
-</div>
 
 <!-- ══ MAIN CONTENT ══ -->
 
@@ -347,12 +328,18 @@
 <script src="shared.js"></script>
 
 <script>
-// Category bar interaction
+// Drawer category switching
 document.querySelectorAll('.cat-link').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
-    document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('active'));
+    document.querySelectorAll('.cat-link').forEach(l => {
+      l.classList.remove('active');
+      l.style.color = '';
+      l.style.fontWeight = '';
+    });
     this.classList.add('active');
+    this.style.color = 'var(--red)';
+    this.style.fontWeight = '700';
   });
 });
 
