@@ -328,6 +328,20 @@
 <script src="shared.js"></script>
 
 <script>
+// ── Burger / Drawer ──────────────────────────────
+document.getElementById('burger-btn').addEventListener('click', function() {
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+});
+document.getElementById('drawer-overlay').addEventListener('click', function() {
+  this.classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+});
+document.getElementById('drawer-close').addEventListener('click', function() {
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+});
+
 // Drawer category switching
 document.querySelectorAll('.cat-link').forEach(link => {
   link.addEventListener('click', function(e) {
