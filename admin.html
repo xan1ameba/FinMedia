@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="ru">
 <head>
@@ -39,6 +39,34 @@
   </div>
 </div>
 
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="drawer-close">✕</button>
+  <div class="drawer-logo"><a href="index.html">FinMedia</a></div>
+  <div class="drawer-section-title">Рубрики</div>
+  <nav>
+        <a href="category.html?cat=Все" class="cat-link active" style="font-weight:700; color:var(--red);">Все</a>
+    <a href="category.html?cat=Бизнес" class="cat-link">Бизнес</a>
+    <a href="category.html?cat=Финансы" class="cat-link">Финансы</a>
+    <a href="category.html?cat=Инвестиции" class="cat-link">Инвестиции</a>
+    <a href="category.html?cat=Стартапы" class="cat-link">Стартапы</a>
+    <a href="category.html?cat=Маркетинг" class="cat-link">Маркетинг</a>
+    <a href="category.html?cat=Недвижимость" class="cat-link">Недвижимость</a>
+    <a href="category.html?cat=Авто" class="cat-link">Авто</a>
+    <a href="category.html?cat=Энергетика" class="cat-link">Энергетика</a>
+    <a href="category.html?cat=Транспорт" class="cat-link">Транспорт</a>
+    <a href="category.html?cat=Биржа" class="cat-link">Биржа</a>
+  </nav>
+  <div class="drawer-section-title">Ещё</div>
+  <nav>
+    <a href="#">Авторы</a>
+    <a href="#">Архив</a>
+    <a href="submit.html">Написать статью</a>
+    <a href="admin.html">Редакция</a>
+  </nav>
+  <a href="submit.html" class="btn-write">Написать статью</a>
+</div>
+
 <!-- ══ DASHBOARD ══ -->
 
 <div id="dashboard" style="display:none;">
@@ -47,10 +75,15 @@
 
   <div style="background:var(--black); color:#fff; padding:12px 0;">
     <div style="max-width:var(--max); margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between;">
-      <a href="index.html" style="font-family:var(--serif); font-size:20px; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; color:#fff;">FinMedia</a>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <button class="burger" id="burger-btn" aria-label="Меню">
+          <span style="background:#fff;"></span><span style="background:#fff;"></span><span style="background:#fff;"></span>
+        </button>
+        <a href="index.html" style="font-family:var(--serif); font-size:20px; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; color:#fff;">FinMedia</a>
+      </div>
       <div style="display:flex; align-items:center; gap:24px;">
         <span style="font-size:12px; color:rgba(255,255,255,0.5);">Главный редактор</span>
-        <span style="font-size:12px; font-weight:600;">admin@finmedia.kz</span>
+        <span style="font-size:12px; font-weight:600;" id="logged-user-email">admin@finmedia.kz</span>
         <button onclick="doLogout()" style="font-size:11px; color:rgba(255,255,255,0.5); font-weight:600; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Выйти</button>
       </div>
     </div>
@@ -144,6 +177,11 @@
 </div>
 ```
 
+  <div style="text-align:center; margin-top:60px; padding-top:20px; border-top:1px solid var(--gray2); display:flex; justify-content:center; gap:24px;">
+    <button onclick="loadDemoData()" style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray3); background:none; cursor:pointer; transition:color 0.2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray3)'">Загрузить примеры</button>
+    <button onclick="clearAllData()" style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); background:none; cursor:pointer; opacity:0.8; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">Очистить все данные</button>
+  </div>
+
   </div><!-- /admin-page -->
 </div><!-- /dashboard -->
 
@@ -166,21 +204,56 @@
 <script>
 // ── Demo data ─────────────────────────────────────────────
 let articles = {
-  pending: [
-    { id: 1, date: '07 апр 2026', author: 'Сания Кабылова', email: 'sania@mail.kz', title: 'Страхование жизни в Казахстане: почему молодёжь не понимает его важность', category: 'Страхование', thumb: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=100&q=60&fit=crop', doc: 'https://docs.google.com/document/d/example1' },
-    { id: 2, date: '06 апр 2026', author: 'Нурдаулет Жаксыбеков', email: 'nurdaulet@mail.kz', title: 'Электрокары в Казахстане: рынок, который только просыпается', category: 'Авто', thumb: 'https://images.unsplash.com/photo-1565372195458-9de0b320ef04?w=100&q=60&fit=crop', doc: 'https://docs.google.com/document/d/example2' },
-    { id: 3, date: '05 апр 2026', author: 'Жансая Ибрагимова', email: 'zhansaya@mail.kz', title: 'Как работает IPO и почему каждый студент должен это знать', category: 'Биржа', thumb: 'https://images.unsplash.com/photo-1642790551116-18e4a88a25a0?w=100&q=60&fit=crop', doc: 'https://docs.google.com/document/d/example3' },
-  ],
-  published: [
-    { id: 4, date: '06 апр 2026', author: 'Арман Сейткали', email: 'arman@mail.kz', title: 'Почему инвестиции в ИИ — это новая нефть Казахстана', category: 'Инвестиции', likes: 2418 },
-    { id: 5, date: '05 апр 2026', author: 'Дана Нурланова', email: 'dana@mail.kz', title: 'Как казахстанский стартап вышел на рынок ОАЭ без венчура', category: 'Бизнес', likes: 1205 },
-    { id: 6, date: '04 апр 2026', author: 'Тимур Ахметов', email: 'timur@mail.kz', title: 'Три ошибки начинающего инвестора на KASE', category: 'Биржа', likes: 987 },
-  ],
-  rejected: [
-    { id: 7, date: '04 апр 2026', author: 'Аслан Демиров', email: 'aslan@mail.kz', title: 'Мои мысли о биткоине', category: 'Инвестиции', reason: 'Слишком короткая, нет аналитики. Доработай и пришли снова!' },
-    { id: 8, date: '03 апр 2026', author: 'Анон', email: 'anon@mail.kz', title: 'Реклама моего канала', category: 'Маркетинг', reason: 'Рекламный контент не соответствует редакционной политике.' },
-  ]
+  pending: [],
+  published: [],
+  rejected: []
 };
+
+const storedArticles = localStorage.getItem('finmedia_articles');
+if (storedArticles) {
+  articles = JSON.parse(storedArticles);
+} else {
+  localStorage.setItem('finmedia_articles', JSON.stringify(articles));
+}
+
+function saveArticles() {
+  try {
+    localStorage.setItem('finmedia_articles', JSON.stringify(articles));
+  } catch (e) {
+    console.warn("Could not save to localStorage.");
+  }
+}
+
+function loadDemoData() {
+  articles = {
+    pending: [
+      { id: Date.now() + 1, date: '07 апр 2026', author: 'Сания Кабылова', email: 'sania@mail.kz', title: 'Страхование жизни в Казахстане: почему молодёжь не понимает его важность', category: 'Страхование', thumb: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=100&q=60&fit=crop', doc: 'https://docs.google.com/document/d/example1' },
+      { id: Date.now() + 2, date: '06 апр 2026', author: 'Нурдаулет Жаксыбеков', email: 'nurdaulet@mail.kz', title: 'Электрокары в Казахстане: рынок, который только просыпается', category: 'Авто', thumb: 'https://images.unsplash.com/photo-1565372195458-9de0b320ef04?w=100&q=60&fit=crop', doc: 'https://docs.google.com/document/d/example2' },
+      { id: Date.now() + 3, date: '05 апр 2026', author: 'Жансая Ибрагимова', email: 'zhansaya@mail.kz', title: 'Как работает IPO и почему каждый студент должен это знать', category: 'Биржа', thumb: 'https://images.unsplash.com/photo-1642790551116-18e4a88a25a0?w=100&q=60&fit=crop', doc: 'https://docs.google.com/document/d/example3' },
+    ],
+    published: [
+      { id: Date.now() + 4, date: '06 апр 2026', author: 'Арман Сейткали', email: 'arman@mail.kz', title: 'Почему инвестиции в ИИ — это новая нефть Казахстана', category: 'Инвестиции', likes: 2418 },
+      { id: Date.now() + 5, date: '05 апр 2026', author: 'Дана Нурланова', email: 'dana@mail.kz', title: 'Как казахстанский стартап вышел на рынок ОАЭ без венчура', category: 'Бизнес', likes: 1205 },
+      { id: Date.now() + 6, date: '04 апр 2026', author: 'Тимур Ахметов', email: 'timur@mail.kz', title: 'Три ошибки начинающего инвестора на KASE', category: 'Биржа', likes: 987 },
+    ],
+    rejected: [
+      { id: Date.now() + 7, date: '04 апр 2026', author: 'Аслан Демиров', email: 'aslan@mail.kz', title: 'Мои мысли о биткоине', category: 'Инвестиции', reason: 'Слишком короткая, нет аналитики. Доработай и пришли снова!' },
+      { id: Date.now() + 8, date: '03 апр 2026', author: 'Анон', email: 'anon@mail.kz', title: 'Реклама моего канала', category: 'Маркетинг', reason: 'Рекламный контент не соответствует редакционной политике.' },
+    ]
+  };
+  saveArticles();
+  renderAll();
+  showToast('Примеры успешно загружены');
+}
+
+function clearAllData() {
+  if (confirm('Вы уверены, что хотите удалить все заявки и статьи? Это действие нельзя отменить.')) {
+    articles = { pending: [], published: [], rejected: [] };
+    saveArticles();
+    renderAll();
+    showToast('Данные очищены');
+  }
+}
 
 let rejectTarget = null;
 
@@ -190,7 +263,15 @@ function doLogin() {
   const pass  = document.getElementById('login-pass').value;
   const errEl = document.getElementById('login-error');
 
-  if (email === 'admin@finmedia.kz' && pass === 'admin123') {
+  const validUsers = {
+    'admin@finmedia.kz': 'admin123',
+    'sultanadiletov@finmedia.kz': 'Sultan#FinMedia2026',
+    'alimukhtubayev@finmedia.kz': 'Alim#FinMedia2026'
+  };
+
+  if (validUsers[email] && pass === validUsers[email]) {
+    localStorage.setItem('finmedia_logged_in', email);
+    document.getElementById('logged-user-email').textContent = email;
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
     renderAll();
@@ -201,6 +282,7 @@ function doLogin() {
   }
 }
 function doLogout() {
+  localStorage.removeItem('finmedia_logged_in');
   document.getElementById('dashboard').style.display = 'none';
   document.getElementById('login-screen').style.display = 'flex';
   document.getElementById('login-email').value = '';
@@ -208,6 +290,17 @@ function doLogout() {
 }
 document.getElementById('login-pass').addEventListener('keydown', e => {
   if (e.key === 'Enter') doLogin();
+});
+
+// Auto-login check
+document.addEventListener('DOMContentLoaded', () => {
+  const savedEmail = localStorage.getItem('finmedia_logged_in');
+  if (savedEmail) {
+    document.getElementById('logged-user-email').textContent = savedEmail;
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    renderAll();
+  }
 });
 
 // ── Tabs ──────────────────────────────────────────────────
@@ -301,6 +394,7 @@ function approveArticle(id) {
   article.likes = 0;
   article.date  = new Date().toLocaleDateString('ru-RU', {day:'2-digit', month:'short', year:'numeric'});
   articles.published.unshift(article);
+  saveArticles();
   renderAll();
   showToast('✓ Статья опубликована на главной странице!');
   showNotification(`Статья «${article.title.substring(0,40)}…» опубликована`);
@@ -323,6 +417,7 @@ function confirmReject() {
   const article = articles.pending.splice(idx, 1)[0];
   article.reason = feedback || 'Причина не указана';
   articles.rejected.unshift(article);
+  saveArticles();
   closeRejectModal();
   renderAll();
   showToast('Статья отклонена. Автор уведомлён на почту.');

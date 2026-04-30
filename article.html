@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="ru">
 <head>
@@ -27,13 +27,7 @@
       <span></span><span></span><span></span>
     </button>
     <a href="index.html" class="logo">FinMedia</a>
-    <nav class="header-nav">
-      <a href="#">Бизнес</a>
-      <a href="#">Финансы</a>
-      <a href="#" class="active">Инвестиции</a>
-      <a href="#">Стартапы</a>
-      <a href="#">Маркетинг</a>
-    </nav>
+    
     <div class="header-right">
       <button class="search-btn" aria-label="Поиск">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -53,128 +47,34 @@
   <div class="drawer-logo"><a href="index.html">FinMedia</a></div>
   <div class="drawer-section-title">Рубрики</div>
   <nav>
-    <a href="#">Экономика и бизнес</a>
-    <a href="#">Бизнес</a>
-    <a href="#">Финансы</a>
-    <a href="#">Инвестиции</a>
-    <a href="#">Биржа</a>
-    <a href="#">Производство</a>
-    <a href="#">Энергетика и недра</a>
-    <a href="#">Сельское хозяйство</a>
-    <a href="#">Страхование</a>
-    <a href="#">Недвижимость</a>
-    <a href="#">Стартапы</a>
-    <a href="#">Авто</a>
-    <a href="#">Маркетинг</a>
-    <a href="#">Транспорт и торговля</a>
+        <a href="category.html?cat=Все" class="cat-link active" style="font-weight:700; color:var(--red);">Все</a>
+    <a href="category.html?cat=Бизнес" class="cat-link">Бизнес</a>
+    <a href="category.html?cat=Финансы" class="cat-link">Финансы</a>
+    <a href="category.html?cat=Инвестиции" class="cat-link">Инвестиции</a>
+    <a href="category.html?cat=Стартапы" class="cat-link">Стартапы</a>
+    <a href="category.html?cat=Маркетинг" class="cat-link">Маркетинг</a>
+    <a href="category.html?cat=Недвижимость" class="cat-link">Недвижимость</a>
+    <a href="category.html?cat=Авто" class="cat-link">Авто</a>
+    <a href="category.html?cat=Энергетика" class="cat-link">Энергетика</a>
+    <a href="category.html?cat=Транспорт" class="cat-link">Транспорт</a>
+    <a href="category.html?cat=Биржа" class="cat-link">Биржа</a>
   </nav>
   <div class="drawer-section-title">Ещё</div>
   <nav>
     <a href="#">Авторы</a>
     <a href="#">Архив</a>
     <a href="submit.html">Написать статью</a>
+    <a href="admin.html">Редакция</a>
   </nav>
   <a href="submit.html" class="btn-write">Написать статью</a>
 </div>
 
 <!-- ══ ARTICLE ══ -->
 
-<article class="article-page">
-
-  <!-- Breadcrumbs -->
-
-  <nav class="breadcrumbs">
-    <a href="index.html">Главная</a>
-    <span class="sep">/</span>
-    <a href="#">Инвестиции</a>
-  </nav>
-
-  <!-- Category -->
-
-  <p class="article-category">Инвестиции</p>
-
-  <!-- Title -->
-
-  <h1 class="article-title">
-    Почему инвестиции в ИИ — это новая нефть Казахстана к 2030 году
-  </h1>
-
-  <!-- Author block -->
-
-  <div class="author-bio">
-    <div class="author-avatar">А</div>
-    <div class="author-info">
-      <p class="name">Арман Сейткали</p>
-      <p class="details">Лицей «Bilim Innovation», Алматы · 6 апреля 2026</p>
-    </div>
-    <div class="author-socials">
-      <a href="#" title="Telegram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M21.8 4.6L18.1 20.3c-.3 1.2-1 1.5-2 .9l-5.5-4-2.7 2.6c-.3.3-.6.4-.9.4l.4-5.7L17.3 7c.4-.3 0-.5-.5-.2L6.5 13.5 1.1 11.8c-1.2-.4-1.2-1.2.3-1.7l19-7.3c1 -.4 1.9.2 1.4 1.8z"/>
-        </svg>
-      </a>
-      <a href="#" title="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.4a4 4 0 1 1-4.8-3.9 4 4 0 0 1 4.8 3.9z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
-        </svg>
-      </a>
-    </div>
+<article class="article-page" id="article-container">
+  <div style="padding: 100px 0; text-align:center;">
+    <h2 style="color:var(--red);">Загрузка статьи...</h2>
   </div>
-
-  <!-- Featured image -->
-
-<img class="featured-img"
-src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80&fit=crop"
-alt="Инвестиции в ИИ — новая нефть Казахстана">
-
-  <p class="img-caption">Фото: Unsplash / Markus Winkler</p>
-
-  <!-- Body -->
-
-  <div class="article-body">
-
-```
-<p>Когда мы говорим о «нефти» в современном контексте, мы имеем в виду не просто природный ресурс, а то, что становится основой экономической силы нации. В XX веке такой силой были углеводороды. В XXI — данные и искусственный интеллект. И Казахстан, имея уникальный набор преимуществ, стоит прямо перед этой волной.</p>
-
-<blockquote>
-  «Страна, которая контролирует данные и алгоритмы, будет контролировать экономику следующих 50 лет» — и Казахстан может занять место за этим столом.
-</blockquote>
-
-<h2>Три кита конкурентного преимущества</h2>
-
-<p>Первое — дешёвая электроэнергия. Казахстан занимает одно из первых мест в мире по стоимости электричества для промышленных потребителей. Это критично: обучение одной GPT-подобной модели потребляет электричество как небольшой город за несколько дней. Дата-центры международных ИИ-компаний уже смотрят на нашу страну как на потенциальный хаб.</p>
-
-<p>Второе — молодость населения. Средний возраст казахстанца — 31 год. Это огромный потенциал для переквалификации в новые профессии. При правильной государственной программе через 5 лет можно создать армию специалистов в области машинного обучения, которые будут конкурентоспособны на глобальном рынке.</p>
-
-<p>Третье — стратегическое положение. Казахстан находится между двумя крупнейшими технологическими державами — Китаем и Россией, и при этом интегрирован в западные финансовые системы. Это даёт уникальный «буферный» статус, который привлекает компании из обоих лагерей.</p>
-
-<h2>Куда смотреть инвестору уже сейчас?</h2>
-
-<p>Аналитики выделяют три перспективных направления на горизонте 2026–2030 годов. Первое — AgriTech с использованием ИИ. Казахстан — крупный производитель зерна. Умные системы прогнозирования урожаев и управления ресурсами могут радикально повысить эффективность отрасли. Второе — ИИ в добывающей промышленности: предсказательное обслуживание оборудования на нефтяных месторождениях уже сейчас экономит миллиарды. Третье — финтех. AIFC создаёт уникальную регуляторную среду, которая позволяет тестировать технологии быстрее, чем в большинстве стран мира.</p>
-
-<p>Казахстан имеет все шансы стать «ИИ-хабом» Центральной Азии. Вопрос не в том, произойдёт ли это, а в том, будут ли казахстанцы владельцами этого будущего или просто его потребителями. Выбор за нами.</p>
-```
-
-  </div>
-
-  <!-- Engagement -->
-
-  <div class="engagement-block">
-    <button class="like-btn" id="like-btn" onclick="toggleLike(this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M12 22s-8-4.5-8-11.8A5.5 5.5 0 0 1 12 4.4 5.5 5.5 0 0 1 20 10.2C20 17.5 12 22 12 22z"/>
-      </svg>
-      <span id="like-count">2 418</span> ракет
-    </button>
-    <div class="views-count">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-        <circle cx="12" cy="12" r="3"/>
-      </svg>
-      <span>14 871 просмотр</span>
-    </div>
-  </div>
-
 </article>
 
 <!-- ══ RELATED ══ -->
@@ -185,17 +85,13 @@ alt="Инвестиции в ИИ — новая нефть Казахстана
       <h2>Читайте также</h2>
     </div>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
-      <a href="article.html" style="display:block;">
+      <a href="article.html?id=2" style="display:block;">
         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80&fit=crop" style="width:100%; height:140px; object-fit:cover; margin-bottom:12px;">
         <span style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); display:block; margin-bottom:8px;">Бизнес</span>
         <p style="font-family:var(--serif); font-size:16px; font-weight:700; line-height:1.35; transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color=''">Как казахстанский стартап вышел на рынок ОАЭ без венчура</p>
       </a>
-      <a href="article.html" style="display:block;">
-        <img src="https://images.unsplash.com/photo-1642790551116-18e4a88a25a0?w=400&q=80&fit=crop" style="width:100%; height:140px; object-fit:cover; margin-bottom:12px;">
-        <span style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); display:block; margin-bottom:8px;">Биржа</span>
-        <p style="font-family:var(--serif); font-size:16px; font-weight:700; line-height:1.35; transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color=''">Три ошибки начинающего инвестора на KASE в 16 лет</p>
-      </a>
-      <a href="article.html" style="display:block;">
+      
+      <a href="article.html?id=4" style="display:block;">
         <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=400&q=80&fit=crop" style="width:100%; height:140px; object-fit:cover; margin-bottom:12px;">
         <span style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); display:block; margin-bottom:8px;">Стартапы</span>
         <p style="font-family:var(--serif); font-size:16px; font-weight:700; line-height:1.35; transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color=''">EdTech или HealthTech: куда несут бизнес-идеи в 2026-м</p>
@@ -235,5 +131,133 @@ function toggleLike(btn) {
 }
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const idStr = urlParams.get('id');
+  if (!idStr) {
+    document.getElementById('article-container').innerHTML = '<div style="padding:100px 0;text-align:center;"><h2>Статья не найдена</h2><a href="index.html" class="btn-login" style="display:inline-block;margin-top:20px;">На главную</a></div>';
+    return;
+  }
+  
+  const id = parseInt(idStr, 10);
+  
+  // Combine ALL_ARTICLES with user-published articles from localStorage
+  let combinedArticles = [...ALL_ARTICLES];
+  const stored = localStorage.getItem('finmedia_articles');
+  if (stored) {
+    try {
+      const parsed = JSON.parse(stored);
+      if (parsed.published && Array.isArray(parsed.published)) {
+        const userPubs = parsed.published.map(a => ({
+          id: a.id,
+          title: a.title,
+          category: a.category,
+          thumb: a.thumb || 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&q=60&fit=crop',
+          author: a.author,
+          school: '',
+          date: a.date,
+          likes: a.likes || Math.floor(Math.random() * 1000),
+          doc: a.doc
+        }));
+        combinedArticles = [...userPubs, ...combinedArticles];
+      }
+    } catch(e) {}
+  }
+  
+  const article = combinedArticles.find(a => a.id === id);
+  if (!article) {
+    document.getElementById('article-container').innerHTML = '<div style="padding:100px 0;text-align:center;"><h2>Статья не найдена</h2><a href="index.html" class="btn-login" style="display:inline-block;margin-top:20px;">На главную</a></div>';
+    return;
+  }
+  
+  document.title = article.title + ' | FinMedia';
+  
+  let bodyContent = '';
+  if (article.body) {
+    bodyContent = article.body;
+  } else if (article.doc) {
+    bodyContent = 
+      <div style="background:var(--gray); padding:40px; text-align:center; border:2px solid var(--black);">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" style="margin-bottom:16px;">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h3 style="margin-bottom:12px; font-size:24px;">Статья доступна в Google Docs</h3>
+        <p style="margin-bottom:24px; color:var(--gray3);">Автор предоставил полный текст в виде документа.</p>
+        <a href="+article.doc+" target="_blank" class="btn-login" style="display:inline-block; padding:16px 32px; font-size:12px;">Открыть документ →</a>
+      </div>
+    ;
+  } else {
+    bodyContent = '<p>Текст статьи отсутствует.</p>';
+  }
+  
+  document.getElementById('article-container').innerHTML = 
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+      <a href="index.html">Главная</a>
+      <span class="sep">/</span>
+      <a href="category.html?cat="></a>
+    </nav>
+
+    <!-- Category -->
+    <p class="article-category"></p>
+
+    <!-- Title -->
+    <h1 class="article-title"></h1>
+
+    <!-- Author block -->
+    <div class="author-bio">
+      <div class="author-avatar"></div>
+      <div class="author-info">
+        <p class="name"></p>
+        <p class="details"></p>
+      </div>
+      <div class="author-socials">
+        <a href="#" title="Telegram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21.8 4.6L18.1 20.3c-.3 1.2-1 1.5-2 .9l-5.5-4-2.7 2.6c-.3.3-.6.4-.9.4l.4-5.7L17.3 7c.4-.3 0-.5-.5-.2L6.5 13.5 1.1 11.8c-1.2-.4-1.2-1.2.3-1.7l19-7.3c1 -.4 1.9.2 1.4 1.8z"/>
+          </svg>
+        </a>
+        <a href="#" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.4a4 4 0 1 1-4.8-3.9 4 4 0 0 1 4.8 3.9z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Featured image -->
+    <img class="featured-img" src="" alt="">
+
+    <!-- Body -->
+    <div class="article-body">
+      
+    </div>
+
+    <!-- Engagement -->
+    <div class="engagement-block">
+      <button class="like-btn" id="like-btn" onclick="toggleLike(this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 22s-8-4.5-8-11.8A5.5 5.5 0 0 1 12 4.4 5.5 5.5 0 0 1 20 10.2C20 17.5 12 22 12 22z"/>
+        </svg>
+        <span id="like-count"></span> ракет
+      </button>
+      <div class="views-count">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        <span> просмотр</span>
+      </div>
+    </div>
+  ;
+});
+</script>
 </body>
 </html>
+
+

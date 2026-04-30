@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="ru">
 <head>
@@ -24,13 +24,7 @@
       <span></span><span></span><span></span>
     </button>
     <a href="index.html" class="logo">FinMedia</a>
-    <nav class="header-nav">
-      <a href="#">Бизнес</a>
-      <a href="#">Финансы</a>
-      <a href="#">Инвестиции</a>
-      <a href="#">Стартапы</a>
-      <a href="#">Маркетинг</a>
-    </nav>
+    
     <div class="header-right">
       <a href="index.html" style="font-size:12px; font-weight:600; color:var(--gray3); letter-spacing:0.05em;">← На главную</a>
     </div>
@@ -45,21 +39,26 @@
   <div class="drawer-logo"><a href="index.html">FinMedia</a></div>
   <div class="drawer-section-title">Рубрики</div>
   <nav>
-    <a href="#">Экономика и бизнес</a>
-    <a href="#">Бизнес</a>
-    <a href="#">Финансы</a>
-    <a href="#">Инвестиции</a>
-    <a href="#">Биржа</a>
-    <a href="#">Производство</a>
-    <a href="#">Энергетика и недра</a>
-    <a href="#">Сельское хозяйство</a>
-    <a href="#">Страхование</a>
-    <a href="#">Недвижимость</a>
-    <a href="#">Стартапы</a>
-    <a href="#">Авто</a>
-    <a href="#">Маркетинг</a>
-    <a href="#">Транспорт и торговля</a>
+        <a href="category.html?cat=Все" class="cat-link active" style="font-weight:700; color:var(--red);">Все</a>
+    <a href="category.html?cat=Бизнес" class="cat-link">Бизнес</a>
+    <a href="category.html?cat=Финансы" class="cat-link">Финансы</a>
+    <a href="category.html?cat=Инвестиции" class="cat-link">Инвестиции</a>
+    <a href="category.html?cat=Стартапы" class="cat-link">Стартапы</a>
+    <a href="category.html?cat=Маркетинг" class="cat-link">Маркетинг</a>
+    <a href="category.html?cat=Недвижимость" class="cat-link">Недвижимость</a>
+    <a href="category.html?cat=Авто" class="cat-link">Авто</a>
+    <a href="category.html?cat=Энергетика" class="cat-link">Энергетика</a>
+    <a href="category.html?cat=Транспорт" class="cat-link">Транспорт</a>
+    <a href="category.html?cat=Биржа" class="cat-link">Биржа</a>
   </nav>
+  <div class="drawer-section-title">Ещё</div>
+  <nav>
+    <a href="#">Авторы</a>
+    <a href="#">Архив</a>
+    <a href="submit.html">Написать статью</a>
+    <a href="admin.html">Редакция</a>
+  </nav>
+  <a href="submit.html" class="btn-write">Написать статью</a>
 </div>
 
 <!-- ══ FORM ══ -->
@@ -310,9 +309,50 @@ document.getElementById('submit-form').addEventListener('submit', function(e) {
   btn.disabled = true;
 
   setTimeout(() => {
+    // ---- SAVE TO LOCALSTORAGE ----
+    const storedArticles = localStorage.getItem('finmedia_articles');
+    let articlesData = storedArticles ? JSON.parse(storedArticles) : {
+      pending: [],
+      published: [],
+      rejected: []
+    };
+    
+    const d = new Date();
+    const months = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+    const dateStr = `${d.getDate().toString().padStart(2, '0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    
+    let thumbData = prevImg.src;
+    if (!thumbData || thumbData === '' || thumbData.length < 10) {
+      thumbData = 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=100&q=60&fit=crop';
+    }
+    
+    const newArticle = {
+      id: Date.now(),
+      date: dateStr,
+      author: `${fn.value.trim()} ${ln.value.trim()}`,
+      email: em.value.trim(),
+      title: title.value.trim(),
+      category: cat.value,
+      thumb: thumbData,
+      doc: doc.value.trim()
+    };
+    
+    articlesData.pending.unshift(newArticle);
+    
+    try {
+      localStorage.setItem('finmedia_articles', JSON.stringify(articlesData));
+    } catch (e) {
+      console.warn("Could not save to localStorage. Image might be too large.");
+      newArticle.thumb = 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=100&q=60&fit=crop';
+      localStorage.setItem('finmedia_articles', JSON.stringify(articlesData));
+    }
+    // ------------------------------
+
     document.getElementById('success-overlay').classList.add('show');
     btn.textContent = 'Отправить статью на проверку';
     btn.disabled = false;
+    document.getElementById('submit-form').reset();
+    clearFile();
   }, 1800);
 });
 

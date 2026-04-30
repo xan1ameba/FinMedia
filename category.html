@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="ru">
 <head>
@@ -77,94 +77,14 @@
   <main>
 
 ```
-<!-- Hero Article -->
-<section class="hero-article">
-  <span class="category-tag">Инвестиции</span>
-  <a href="article.html?id=1">
-    <img class="hero-img"
-      src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80&fit=crop"
-      alt="Почему инвестиции в ИИ — это новая нефть Казахстана"
-      loading="lazy">
-    <h1>Почему инвестиции в ИИ — это новая нефть Казахстана к 2030 году</h1>
-  </a>
-  <p class="excerpt">Пока весь мир гонится за чипами и моделями, Казахстан стоит на пороге уникального окна возможностей. Разбираем, почему именно сейчас — лучшее время для входа, и какие секторы дадут максимальный рост.</p>
-  <div class="article-meta">
-    <span class="author">Арман Сейткали</span>
-    <span class="dot">·</span>
-    <span>Лицей «Bilim Innovation»</span>
-    <span class="dot">·</span>
-    <span>6 апреля 2026</span>
-    <span class="dot">·</span>
-    <span>🚀 2 418</span>
-  </div>
-</section>
-
-<!-- Section Header -->
-<div class="section-header">
-  <h2>Последние статьи</h2>
-  <a href="#" class="see-all">Все материалы →</a>
+<!-- Dynamic Category Header -->
+<div class="section-header" style="margin-top:20px; border-bottom:3px solid var(--red);">
+  <h2 id="cat-page-title" style="font-size:24px; letter-spacing:0; color:var(--red);">Загрузка...</h2>
 </div>
 
 <!-- Article Feed -->
 <div class="article-feed" id="article-feed">
-
-  <a href="article.html?id=2" class="feed-item">
-    <img class="thumb"
-      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=300&q=80&fit=crop"
-      alt="Бизнес" loading="lazy">
-    <div class="feed-item-content">
-      <span class="cat-tag">Бизнес</span>
-      <h3>Как казахстанский стартап вышел на рынок ОАЭ без единого доллара венчурных денег</h3>
-      <p class="meta"><span class="author-name">Дана Нурланова</span> · НИШ Алматы · 5 апр 2026 · 🚀 1 205</p>
-    </div>
-  </a>
-
-
-
-  <a href="article.html?id=4" class="feed-item">
-    <img class="thumb"
-      src="https://images.unsplash.com/photo-1560472355-536de3962603?w=300&q=80&fit=crop"
-      alt="Стартапы" loading="lazy">
-    <div class="feed-item-content">
-      <span class="cat-tag">Стартапы</span>
-      <h3>EdTech или HealthTech: куда казахстанские школьники несут свои бизнес-идеи в 2026-м</h3>
-      <p class="meta"><span class="author-name">Айгерим Касымова</span> · Haileybury Almaty · 3 апр 2026 · 🚀 843</p>
-    </div>
-  </a>
-
-  <a href="article.html?id=5" class="feed-item">
-    <img class="thumb"
-      src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=300&q=80&fit=crop"
-      alt="Энергетика" loading="lazy">
-    <div class="feed-item-content">
-      <span class="cat-tag">Энергетика</span>
-      <h3>Зелёная энергетика в Казахстане: реальность или красивые слайды для инвесторов</h3>
-      <p class="meta"><span class="author-name">Алишер Джаксыбеков</span> · БИЛ Шымкент · 2 апр 2026 · 🚀 761</p>
-    </div>
-  </a>
-
-  <a href="article.html?id=6" class="feed-item">
-    <img class="thumb"
-      src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&q=80&fit=crop"
-      alt="Маркетинг" loading="lazy">
-    <div class="feed-item-content">
-      <span class="cat-tag">Маркетинг</span>
-      <h3>Почему Gen Z не доверяет рекламе в Instagram и что с этим делают умные бренды</h3>
-      <p class="meta"><span class="author-name">Мадина Серикбаева</span> · Kolsai School · 1 апр 2026 · 🚀 634</p>
-    </div>
-  </a>
-
-  <a href="article.html?id=7" class="feed-item">
-    <img class="thumb"
-      src="https://images.unsplash.com/photo-1565372195458-9de0b320ef04?w=300&q=80&fit=crop"
-      alt="Недвижимость" loading="lazy">
-    <div class="feed-item-content">
-      <span class="cat-tag">Недвижимость</span>
-      <h3>Покупать квартиру в Алматы в 2026-м — мудрость или ловушка для молодых?</h3>
-      <p class="meta"><span class="author-name">Руслан Темиров</span> · NIS Павлодар · 31 мар 2026 · 🚀 590</p>
-    </div>
-  </a>
-
+  <!-- Articles will be injected here by JS -->
 </div>
 
 <!-- Load more -->
@@ -208,7 +128,7 @@
     <li class="popular-item">
       <span class="popular-num">01</span>
       <div>
-        <a href="article.html?id=1">
+        <a href="article.html">
           <p class="popular-title">Почему инвестиции в ИИ — это новая нефть Казахстана</p>
         </a>
         <p class="popular-author">Арман Сейткали · 🚀 2 418</p>
@@ -226,14 +146,23 @@
     <li class="popular-item">
       <span class="popular-num">03</span>
       <div>
-        <a href="article.html?id=4">
+        <a href="article.html">
+          <p class="popular-title">Три ошибки начинающего инвестора на KASE</p>
+        </a>
+        <p class="popular-author">Тимур Ахметов · 🚀 987</p>
+      </div>
+    </li>
+    <li class="popular-item">
+      <span class="popular-num">04</span>
+      <div>
+        <a href="article.html">
           <p class="popular-title">EdTech или HealthTech: куда несут бизнес-идеи в 2026-м</p>
         </a>
         <p class="popular-author">Айгерим Касымова · 🚀 843</p>
       </div>
     </li>
     <li class="popular-item">
-      <span class="popular-num">04</span>
+      <span class="popular-num">05</span>
       <div>
         <a href="article.html">
           <p class="popular-title">Зелёная энергетика: реальность или красивые слайды</p>
@@ -308,7 +237,62 @@
 document.getElementById('update-time').textContent =
   'Обновлено: ' + new Date().toLocaleTimeString('ru-RU', {hour:'2-digit', minute:'2-digit'});
 
-// Load more (demo)
+// Render Category
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  let category = urlParams.get('cat');
+  if (!category) category = 'Все';
+
+  document.getElementById('cat-page-title').textContent = category === 'Все' ? 'Все статьи' : 'Рубрика: ' + category;
+  document.title = category + ' | FinMedia';
+
+  // Combine ALL_ARTICLES with user-published articles from localStorage
+  let combinedArticles = [...ALL_ARTICLES];
+  const stored = localStorage.getItem('finmedia_articles');
+  if (stored) {
+    try {
+      const parsed = JSON.parse(stored);
+      if (parsed.published && Array.isArray(parsed.published)) {
+        // Map them to match ALL_ARTICLES structure
+        const userPubs = parsed.published.map(a => ({
+          id: a.id,
+          title: a.title,
+          category: a.category,
+          thumb: a.thumb || 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&q=60&fit=crop',
+          author: a.author,
+          school: '', // User articles might not have school
+          date: a.date,
+          likes: a.likes || Math.floor(Math.random() * 1000)
+        }));
+        combinedArticles = [...userPubs, ...combinedArticles];
+      }
+    } catch(e) {}
+  }
+
+  // Filter by category
+  let filtered = combinedArticles;
+  if (category !== 'Все') {
+    filtered = combinedArticles.filter(a => a.category.toLowerCase() === category.toLowerCase());
+  }
+
+  const feedEl = document.getElementById('article-feed');
+  if (filtered.length === 0) {
+    feedEl.innerHTML = '<p style="padding: 40px 0; text-align:center; color:var(--gray3);">В этой рубрике пока нет статей.</p>';
+    return;
+  }
+
+  feedEl.innerHTML = filtered.map(a => `
+    <a href="article.html?id=${a.id}" class="feed-item">
+      <img class="thumb" src="${a.thumb}" alt="${a.category}" loading="lazy">
+      <div class="feed-item-content">
+        <span class="cat-tag">${a.category}</span>
+        <h3>${a.title}</h3>
+        <p class="meta"><span class="author-name">${a.author}</span> ${a.school ? '· ' + a.school : ''} · ${a.date} · 🚀 ${a.likes}</p>
+      </div>
+    </a>
+  `).join('');
+});
+
 function loadMore(btn) {
   btn.textContent = 'Загрузка...';
   btn.disabled = true;
@@ -323,6 +307,4 @@ function loadMore(btn) {
 
 </body>
 </html>
-
-
 
