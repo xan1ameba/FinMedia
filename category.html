@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let category = urlParams.get('cat');
   if (!category) category = 'Все';
 
-  document.getElementById('cat-page-title').textContent = category === 'Все' ? 'Все статьи' : 'Рубрика: ' + category;
+  document.getElementById('cat-page-title').textContent = category === 'Все' ? 'Все статьи' : category;
   document.title = category + ' | FinMedia';
 
   // Combine ALL_ARTICLES with user-published articles from localStorage

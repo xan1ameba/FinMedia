@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="ru">
 <head>
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (article.body) {
     bodyContent = article.body;
   } else if (article.doc) {
-    bodyContent = 
+    bodyContent = `
       <div style="background:var(--gray); padding:40px; text-align:center; border:2px solid var(--black);">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" style="margin-bottom:16px;">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -188,33 +188,33 @@ document.addEventListener('DOMContentLoaded', () => {
         </svg>
         <h3 style="margin-bottom:12px; font-size:24px;">Статья доступна в Google Docs</h3>
         <p style="margin-bottom:24px; color:var(--gray3);">Автор предоставил полный текст в виде документа.</p>
-        <a href="+article.doc+" target="_blank" class="btn-login" style="display:inline-block; padding:16px 32px; font-size:12px;">Открыть документ →</a>
+        <a href="${article.doc}" target="_blank" class="btn-login" style="display:inline-block; padding:16px 32px; font-size:12px;">Открыть документ →</a>
       </div>
-    ;
+    `;
   } else {
     bodyContent = '<p>Текст статьи отсутствует.</p>';
   }
   
-  document.getElementById('article-container').innerHTML = 
+  document.getElementById('article-container').innerHTML = `
     <!-- Breadcrumbs -->
     <nav class="breadcrumbs">
       <a href="index.html">Главная</a>
       <span class="sep">/</span>
-      <a href="category.html?cat="></a>
+      <a href="category.html?cat=${article.category}">${article.category}</a>
     </nav>
 
     <!-- Category -->
-    <p class="article-category"></p>
+    <p class="article-category">${article.category}</p>
 
     <!-- Title -->
-    <h1 class="article-title"></h1>
+    <h1 class="article-title">${article.title}</h1>
 
     <!-- Author block -->
     <div class="author-bio">
-      <div class="author-avatar"></div>
+      <div class="author-avatar">${article.author.charAt(0)}</div>
       <div class="author-info">
-        <p class="name"></p>
-        <p class="details"></p>
+        <p class="name">${article.author}</p>
+        <p class="details">${article.school ? article.school + ' · ' : ''}${article.date}</p>
       </div>
       <div class="author-socials">
         <a href="#" title="Telegram">
@@ -231,11 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 
     <!-- Featured image -->
-    <img class="featured-img" src="" alt="">
+    <img class="featured-img" src="${article.thumb}" alt="${article.title}">
 
     <!-- Body -->
     <div class="article-body">
-      
+      ${bodyContent}
     </div>
 
     <!-- Engagement -->
@@ -244,17 +244,17 @@ document.addEventListener('DOMContentLoaded', () => {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M12 22s-8-4.5-8-11.8A5.5 5.5 0 0 1 12 4.4 5.5 5.5 0 0 1 20 10.2C20 17.5 12 22 12 22z"/>
         </svg>
-        <span id="like-count"></span> ракет
+        <span id="like-count">${article.likes.toLocaleString('ru-RU')}</span> ракет
       </button>
       <div class="views-count">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
           <circle cx="12" cy="12" r="3"/>
         </svg>
-        <span> просмотр</span>
+        <span>${(article.likes * 6).toLocaleString('ru-RU')} просмотр</span>
       </div>
     </div>
-  ;
+  `;
 });
 </script>
 </body>
