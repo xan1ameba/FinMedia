@@ -10,6 +10,11 @@
   <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80">
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    if (localStorage.getItem('finmedia_theme') === 'dark') {
+      document.documentElement.classList.add('dark-theme');
+    }
+  </script>
 </head>
 <body>
 
@@ -28,7 +33,20 @@
     </button>
     <a href="index.html" class="logo">FinMedia</a>
     
+    <nav class="header-nav">
+      <a href="category.html?cat=Бизнес">Бизнес</a>
+      <a href="category.html?cat=Финансы">Финансы</a>
+      <a href="category.html?cat=Инвестиции">Инвестиции</a>
+      <a href="category.html?cat=Стартапы">Стартапы</a>
+      <a href="category.html?cat=Маркетинг">Маркетинг</a>
+    </nav>
+    
     <div class="header-right">
+      <button class="search-btn" id="theme-toggle" aria-label="Смена темы" style="margin-right:8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
       <button class="search-btn" aria-label="Поиск">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>

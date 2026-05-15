@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="ru">
 <head>
@@ -7,6 +7,11 @@
   <title>Написать статью | FinMedia</title>
   <meta name="description" content="Стать автором FinMedia — отправь свою статью на проверку редакции. Бесплатно, просто, быстро.">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    if (localStorage.getItem('finmedia_theme') === 'dark') {
+      document.documentElement.classList.add('dark-theme');
+    }
+  </script>
 </head>
 <body>
 

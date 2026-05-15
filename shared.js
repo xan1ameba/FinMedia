@@ -1,4 +1,4 @@
-﻿/* FinMedia — Shared Components */
+/* FinMedia — Shared Components */
 
 // ── Articles Data ─────────────────────────────────────────
 const ALL_ARTICLES = [
@@ -214,12 +214,31 @@ function showToast(msg, duration = 3000) {
   setTimeout(() => toast.classList.remove('show'), duration);
 }
 
+// ── Theme Toggle ───────────────────────────────────────────
+function initTheme() {
+  const currentTheme = localStorage.getItem('finmedia_theme');
+  if (currentTheme === 'dark') {
+    document.documentElement.classList.add('dark-theme');
+  }
+
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (!toggleBtn) return;
+  
+  toggleBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark-theme');
+    const isDark = document.documentElement.classList.contains('dark-theme');
+    localStorage.setItem('finmedia_theme', isDark ? 'dark' : 'light');
+    showToast(isDark ? 'Темная тема включена' : 'Светлая тема включена', 2000);
+  });
+}
+
 // ── Init ───────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   renderTicker();
   renderSidebarCurrency();
   initDrawer();
   initStickyHeader();
+  initTheme();
 });
 
 
